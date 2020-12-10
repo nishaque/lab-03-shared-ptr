@@ -19,27 +19,21 @@ HunterGate(
 )
 
 
-# TODO: rename project and delete this comment
-project(template)
+project(lab-03-shared-ptr)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
-CXXFLAGS="-Wno-error=deprecated-copy" cmake CMakeLists.txt
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
-# TODO: change template word to project name and delete this comment
-add_library(template STATIC
-        # enum your files and delete this comment
+add_library(lab-03-shared-ptr STATIC
         sources/SharedPtr.cpp include/SharedPtr.hpp)
 add_executable(tests
-        # TODO: enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
         sources/SharedPtr.cpp include/SharedPtr.hpp)
 #add_executable(main sources/main.cpp sources/main.cpp)
-# TODO: change template word to project name and delete this comment
-target_include_directories(template
+target_include_directories(lab-03-shared-ptr
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 target_include_directories(tests
@@ -48,8 +42,8 @@ target_include_directories(tests
 #target_include_directories(main
 #        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 #        )
-# TODO: change template word to project name and delete this comment
-target_link_libraries(tests GTest::main template)
+
+target_link_libraries(tests GTest::main lab-03-shared-ptr)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)
