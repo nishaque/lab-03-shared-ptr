@@ -24,7 +24,7 @@ project(template)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
-string(APPEND CMAKE_CXX_FLAGS " -Wno-error=deprecated-copy")
+cmake -DCMAKE_CXX_FLAGS="-Wno-error=deprecated-copy"
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
